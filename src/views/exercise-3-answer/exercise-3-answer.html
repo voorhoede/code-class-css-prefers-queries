@@ -38,6 +38,10 @@
 	const isLight = window.matchMedia("(prefers-color-scheme: light)")
 	const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)")
 
+	// For Safari
+	//window.matchMedia("(prefers-color-scheme: dark)").addListener(e => e.matches && activateDarkMode())
+	//window.matchMedia("(prefers-color-scheme: light)").addListener(e => e.matches && activateLightMode())
+
 	isDark.addEventListener("change", (e) => {
 		if (e.matches) activateDarkMode()
 	})
@@ -49,7 +53,7 @@
 	if (isNotSpecified || isLight) {
 		now = new Date()
 		hour = now.getHours()
-		if (hour < 4 || hour >= 16) {
+		if (hour < 4 || hour >= 19) {
 			activateDarkMode()
 		}
 	}
