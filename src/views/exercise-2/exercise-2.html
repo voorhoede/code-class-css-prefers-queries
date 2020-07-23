@@ -1,0 +1,44 @@
+{% extends "views/_base/base.html" %}
+
+{% block navigation %}
+<nav class="cc-navigation">
+	<a href="/" class="cc-back-link">&#8592; back to overview</a>
+	<a href="/exercise-2-answer/" class="cc-answer-link">See answer &#8594;</a>
+</nav>
+{% endblock %}
+
+{% block introduction %}
+<h1>Prefers color scheme</h1>
+<p>Use prefers color scheme to style for light/dark themes.</p>
+{% endblock %}
+
+{% block html %}
+<section class="cc-html-playground content">
+	<h2>Article</h2>
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non nisi quis erat lobortis tristique.
+		Praesent molestie, sem et tempus condimentum, nunc nisl tincidunt dolor, ut placerat nisi enim vel elit.
+		Praesent ac ultricies augue, a fermentum risus. Suspendisse iaculis nunc non lectus molestie, a tristique
+		purus tincidunt. Morbi ac lacus pellentesque ante placerat pellentesque. Aliquam orci massa, porta ac enim
+		eget, ultricies euismod lectus. Curabitur imperdiet felis id neque condimentum suscipit. Sed porttitor leo
+		ut ante fermentum, semper commodo lectus varius.
+	</p>
+	<img class="content-photo" src="/assets/images/green-grass-field-2026451.jpg" alt="Fields">
+	<p>
+		Praesent ac ultricies augue, a fermentum risus. Suspendisse iaculis nunc non lectus molestie, a tristique
+		purus tincidunt. Morbi ac lacus pellentesque ante placerat pellentesque. Aliquam orci massa, porta ac enim
+		eget, ultricies euismod lectus. Curabitur imperdiet felis id neque condimentum suscipit. Sed porttitor leo
+		ut ante fermentum, semper commodo lectus varius.
+	</p>
+</section>
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+	/* TODO: add media queries for content class */
+	.content {
+		background-color: #fefefe;
+		color: darkslategray;
+	}
+</style>
+{% endblock %}

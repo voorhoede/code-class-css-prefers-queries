@@ -1,0 +1,123 @@
+{% extends "views/_base/base.html" %}
+
+{% block navigation %}
+	<nav class="cc-navigation">
+		<a href="/exercise-1/" class="cc-back-link">&#8592; back to exercise</a>
+	</nav>
+{% endblock %}
+
+{% block introduction %}
+<h1>Reduced motion</h1>
+<p>Use reduced motion to reduce animation movement on screen.</p>
+{% endblock %}
+
+{% block html %}
+<section class="cc-html-playground content">
+	<h2>Article</h2>
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non nisi quis erat lobortis tristique.
+		Praesent molestie, sem et tempus condimentum, nunc nisl tincidunt dolor, ut placerat nisi enim vel elit.
+		Praesent ac ultricies augue, a fermentum risus. Suspendisse iaculis nunc non lectus molestie, a tristique
+		purus tincidunt. Morbi ac lacus pellentesque ante placerat pellentesque. Aliquam orci massa, porta ac enim
+		eget, ultricies euismod lectus. Curabitur imperdiet felis id neque condimentum suscipit. Sed porttitor leo
+		ut ante fermentum, semper commodo lectus varius.
+	</p>
+	<img class="content-photo shake" src="/assets/images/green-grass-field-2026451.jpg" alt="Fields">
+	<div class="button-group">
+		<button class="button-like pulse">Like this photo</button>
+		<button class="button-dislike pulse">Dislike this photo</button>
+	</div>
+	<p>
+		Praesent ac ultricies augue, a fermentum risus. Suspendisse iaculis nunc non lectus molestie, a tristique
+		purus tincidunt. Morbi ac lacus pellentesque ante placerat pellentesque. Aliquam orci massa, porta ac enim
+		eget, ultricies euismod lectus. Curabitur imperdiet felis id neque condimentum suscipit. Sed porttitor leo
+		ut ante fermentum, semper commodo lectus varius.
+	</p>
+</section>
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+	.content {
+		background-color: #fefefe;
+		color: darkslategray;
+	}
+
+	.button-like,
+	.button-dislike {
+		margin: 5px 10px;
+		width: 200px;
+		height: 50px;
+		border-radius: 4px;
+		border: 0;
+		background-color: #ffe400;
+		color: blue;
+	}
+
+	.pulse {
+		animation: pulse 1s linear infinite;
+	}
+
+	.shake {
+		animation: shake 1s linear infinite;
+	}
+
+	@media (prefers-reduced-motion) {
+		.pulse {
+			animation: reduced-pulse 1s linear infinite;
+		}
+
+		.shake {
+			animation: none;
+		}
+	}
+
+	/* ANIMATIONS */
+
+	@keyframes pulse {
+		0% {
+			transform: scale(1);
+		}
+
+		50% {
+			transform: scale(1.5);
+		}
+
+		100% {
+			transform: scale(1);
+		}
+	}
+
+	@keyframes reduced-pulse {
+		0% {
+			opacity: 1;
+		}
+
+		50% {
+			opacity: 0.7;
+		}
+
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@keyframes shake {
+		10%, 90% {
+			transform: translate3d(-1px, 0, 0);
+		}
+
+		20%, 80% {
+			transform: translate3d(2px, 0, 0);
+		}
+
+		30%, 50%, 70% {
+			transform: translate3d(-4px, 0, 0);
+		}
+
+		40%, 60% {
+			transform: translate3d(4px, 0, 0);
+		}
+	}
+</style>
+{% endblock %}

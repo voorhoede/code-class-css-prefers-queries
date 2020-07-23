@@ -1,0 +1,79 @@
+{% extends "views/_base/base.html" %}
+
+{% block navigation %}
+<nav class="cc-navigation">
+	<a href="/exercise-3/" class="cc-back-link">&#8592; back to exercise</a>
+</nav>
+{% endblock %}
+
+{% block introduction %}
+<h1>Prefers color scheme</h1>
+<p>Use prefers color scheme programmatically to style for light/dark themes.</p>
+{% endblock %}
+
+{% block html %}
+<section class="cc-html-playground content">
+	<h2>Article</h2>
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non nisi quis erat lobortis tristique.
+		Praesent molestie, sem et tempus condimentum, nunc nisl tincidunt dolor, ut placerat nisi enim vel elit.
+		Praesent ac ultricies augue, a fermentum risus. Suspendisse iaculis nunc non lectus molestie, a tristique
+		purus tincidunt. Morbi ac lacus pellentesque ante placerat pellentesque. Aliquam orci massa, porta ac enim
+		eget, ultricies euismod lectus. Curabitur imperdiet felis id neque condimentum suscipit. Sed porttitor leo
+		ut ante fermentum, semper commodo lectus varius.
+	</p>
+	<img class="content-photo" src="/assets/images/green-grass-field-2026451.jpg" alt="Fields">
+	<p>
+		Praesent ac ultricies augue, a fermentum risus. Suspendisse iaculis nunc non lectus molestie, a tristique
+		purus tincidunt. Morbi ac lacus pellentesque ante placerat pellentesque. Aliquam orci massa, porta ac enim
+		eget, ultricies euismod lectus. Curabitur imperdiet felis id neque condimentum suscipit. Sed porttitor leo
+		ut ante fermentum, semper commodo lectus varius.
+	</p>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+	const isDark = window.matchMedia("(prefers-color-scheme: dark)")
+	const isLight = window.matchMedia("(prefers-color-scheme: light)")
+	const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)")
+
+	isDark.addEventListener("change", (e) => {
+		if (e.matches) activateDarkMode()
+	})
+
+	isLight.addEventListener("change", (e) => {
+		if (e.matches) activateLightMode()
+	})
+
+	if (isNotSpecified || isLight) {
+		now = new Date()
+		hour = now.getHours()
+		if (hour < 4 || hour >= 16) {
+			activateDarkMode()
+		}
+	}
+
+	function activateDarkMode() {
+		const contentElement = document.querySelector('.content')
+		const darkTheme = {
+			'background-color': 'darkslategray',
+			'color': '#efefef',
+		}
+		for(let t in darkTheme) {
+			contentElement.style.setProperty(t, darkTheme[t])
+		}
+	}
+
+	function activateLightMode() {
+		const contentElement = document.querySelector('.content')
+		const lightTheme = {
+			'background-color': '#fefefe',
+			'color': 'darkslategray',
+		}
+		for(let t in lightTheme) {
+			contentElement.style.setProperty(t, lightTheme[t])
+		}
+	}
+</script>
+{% endblock %}
